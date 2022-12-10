@@ -4,14 +4,27 @@ present.
 
 ## Present Macros
 
-1. `dbg_unimplemented!()`
-2. `dbg_unreachable!()`
-3. `dbg_todo!()`
-4. `dbg_panic!()`
-5. `dbg_compile_error!(expr|block)`
-6. `if_dbg!`[^1]
+Below are examples of every macro implemented in this crate:
 
-[^1] Anything inside is only evaluated if debug symbols are present.
+```rust
+// std::unimplemented, but only if built with debug assertions.
+dbg_unimplemented!();
+
+// std::unreachable, but only if built with debug assertions.
+dbg_unreachable!();
+
+// std::todo, but only if built with debug assertions.
+dbg_todo!();
+
+// std::panic, but only if built with debug assertions.
+dbg_panic!();
+
+// std::compile_error, if built with debug assertions.
+dbg_compile_error!();
+
+// Will print "Hello, debug!", if built with debug assertions.
+if_dbg!(println!("Hello, debug!"));
+```
 
 ## Authors
 Milo Banks
